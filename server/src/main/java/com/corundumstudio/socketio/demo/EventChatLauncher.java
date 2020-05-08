@@ -18,6 +18,7 @@ public class EventChatLauncher {
         server.addEventListener("chatevent", ChatObject.class, new DataListener<ChatObject>() {
             @Override
             public void onData(SocketIOClient client, ChatObject data, AckRequest ackRequest) {
+                //在回调的时候，如果有耗时操作 需要另外开启一个线程 不然 会阻塞 nio 线程
                 server.getBroadcastOperations().sendEvent("chatevent", data);
             }
         });
