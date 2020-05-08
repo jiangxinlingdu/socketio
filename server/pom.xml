@@ -50,6 +50,13 @@
             <artifactId>socket.io-client</artifactId>
             <version>1.0.0</version>
         </dependency>
+
+        <!--jenkins-java-client-->
+        <dependency>
+            <groupId>com.offbytwo.jenkins</groupId>
+            <artifactId>jenkins-client</artifactId>
+            <version>0.3.8</version>
+        </dependency>
     </dependencies>
 
 
