@@ -70,6 +70,11 @@ public class JenkinsConnect {
                 // job 的控制台日志信息
                 System.out.println(build.details().getConsoleOutputHtml());
                 System.out.println(build.details().getConsoleOutputText());
+
+                //获取 修改记录
+                System.out.println(build.details().getChangeSet());
+                //获取 谁修改的
+                System.out.println(build.details().getActions());
             }
         } catch (IOException e) {
             e.printStackTrace();
