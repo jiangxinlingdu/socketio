@@ -24,6 +24,28 @@ public class EventChatLauncher {
 
         server.start();
 
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        for (int i = 0; i < 100; i++) {
+            ChatObject data = new ChatObject();
+            data.setMessage("lingdu" + i);
+            data.setUserName("abc111");
+            long begin = System.currentTimeMillis();
+            //这边发送的时候不是 nio 线程，所以不会有阻塞情况
+            server.getBroadcastOperations().sendEvent("chatevent", data);
+            System.out.println(System.currentTimeMillis() - begin);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        }
+
         Thread.sleep(Integer.MAX_VALUE);
 
         server.stop();
