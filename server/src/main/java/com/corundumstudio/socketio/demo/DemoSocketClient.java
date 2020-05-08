@@ -7,10 +7,6 @@ import org.json.JSONObject;
 
 import java.util.Arrays;
 
-/**
- * @author lingdu
- * @date 2020/5/7
- */
 public class DemoSocketClient {
     public static void main(String[] args) {
         String url = "http://localhost:9092";

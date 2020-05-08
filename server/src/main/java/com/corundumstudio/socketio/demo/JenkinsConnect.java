@@ -10,10 +10,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 
-/**
- * @author lingdu
- * @date 2020/5/8
- */
 public class JenkinsConnect {
     private JenkinsConnect() {
     }
