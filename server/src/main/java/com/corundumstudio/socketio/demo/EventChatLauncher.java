@@ -31,21 +31,36 @@ public class EventChatLauncher {
             e.printStackTrace();
         }
 
-        for (int i = 0; i < 100; i++) {
-            ChatObject data = new ChatObject();
-            data.setMessage("lingdu" + i);
-            data.setUserName("abc111");
-            long begin = System.currentTimeMillis();
-            //这边发送的时候不是 nio 线程，所以不会有阻塞情况
-            server.getBroadcastOperations().sendEvent("chatevent", data);
-            System.out.println(System.currentTimeMillis() - begin);
+        for (int j = 0; j < 100000000; j++) {
+
+            for (int i = 0; i < 100; i++) {
+                ChatObject data = new ChatObject();
+                data.setMessage("lingdu" + i);
+                data.setUserName("abc111");
+                long begin = System.currentTimeMillis();
+                //这边发送的时候不是 nio 线程，所以不会有阻塞情况
+                server.getBroadcastOperations().sendEvent("chatevent" + (i % 2), data);
+
+                /**
+                 * event-index0.html
+                 * event-index1.html
+                 */
+                System.out.println(System.currentTimeMillis() - begin);
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
             try {
-                Thread.sleep(1000);
+                Thread.sleep(6000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
         }
+
 
         Thread.sleep(Integer.MAX_VALUE);
 
