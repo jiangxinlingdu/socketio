@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 public class DemoSocketClient {
     public static void main(String[] args) {
-        String url = "http://localhost:9092";
+        String url = "http://localhost:8888/shark/";
         try {
             IO.Options options = new IO.Options();
             options.transports = new String[]{"websocket"};
